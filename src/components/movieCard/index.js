@@ -23,10 +23,11 @@ const useStyles = makeStyles({
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
-  mustWatchAvatar: {
+  /*mustWatchAvatar: {
     backgroundColor: "rgb(255, 0, 0)",
-  },
+  },*/
 });
+
 
 
 export default function MovieCard({ movie,action }) {
@@ -42,11 +43,28 @@ export default function MovieCard({ movie,action }) {
     movie.mustWatch = true;
   }
 
-  return (
-    <Card className={classes.card}>
-      <CardHeader
-        className={classes.header}
-        avatar={
+  function AvatarSwitcher(){
+    let avatar = null;
+
+
+    if(movie.favorite === true){
+      avatar = <Avatar className={classes.avatar}>
+      <FavoriteIcon />
+    </Avatar>
+    }
+    else if(movie.mustWatch === true){
+      avatar = <Avatar className={classes.avatar}>
+      <PlaylistAddCheckIcon />
+    </Avatar>
+    }
+    else{
+      avatar = null;
+    }
+    return avatar;
+  }
+
+  /*
+          avatar={
           movie.favorite ? (
             <Avatar className={classes.avatar}>
               <FavoriteIcon />
@@ -60,6 +78,13 @@ export default function MovieCard({ movie,action }) {
             </Avatar>
           ) : null
         }
+  */
+
+  return (
+    <Card className={classes.card}>
+      <CardHeader
+        className={classes.header}
+        avatar = {<AvatarSwitcher />}
         title={
           <Typography variant="h5" component="p">
             {movie.title}{" "}
