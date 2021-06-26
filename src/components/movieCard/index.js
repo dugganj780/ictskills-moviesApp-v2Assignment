@@ -8,6 +8,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import Grid from "@material-ui/core/Grid";
@@ -22,14 +23,23 @@ const useStyles = makeStyles({
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
+  mustWatchAvatar: {
+    backgroundColor: "rgb(255, 0, 0)",
+  },
 });
+
 
 export default function MovieCard({ movie,action }) {
   const classes = useStyles();
   const { favorites } = useContext(MoviesContext);
+  const { mustWatch } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
+  }
+
+  if (mustWatch.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
   }
 
   return (
@@ -40,6 +50,13 @@ export default function MovieCard({ movie,action }) {
           movie.favorite ? (
             <Avatar className={classes.avatar}>
               <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
+        mustWatchAvatar={
+          movie.mustWatch ? (
+            <Avatar className={classes.avatar}>
+              <PlaylistAddCheckIcon />
             </Avatar>
           ) : null
         }
