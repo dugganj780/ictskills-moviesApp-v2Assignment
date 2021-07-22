@@ -1,17 +1,20 @@
 # Assignment - ReactJS app.
 
-Name: ... your name ...
+Name: James Duggan
 
 ## Overview.
 
 ...... State the app concept and objectives. If it's the Movies Fan app extension, only state the additional objectives .........
 
+Add the usability to see cast of a movie
+Add function to see actor data
+
 
 ...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features...... 
  
- + Feature 1
- + Feature 2
- + Feature 3
+ + Cast Item
+ + Cast List
+ + Cast Page
  + etc
  + etc
 
@@ -21,11 +24,11 @@ Name: ... your name ...
 
 ## API Data Model.
 
-..... [For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints ........
-
-![][model]
-
 ......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
+
+getCast
+getCastImages
+getActor
 
 ## App Design.
 
