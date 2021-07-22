@@ -3,6 +3,7 @@ import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import MonetizationIcon from "@material-ui/icons/MonetizationOn";
+import GroupIcon from '@material-ui/icons/Group';
 import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
@@ -10,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,6 +57,9 @@ const MovieDetails = ( { movie }) => {
         ))}
       </Paper>
       <Paper component="ul" className={classes.root}>
+      <Link to={`/movies/${movie.id}/castandcrew`}>
+      <Chip icon={<GroupIcon />} label="Cast and Crew" color="secondary" />
+      </Link>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
           icon={<MonetizationIcon />}
