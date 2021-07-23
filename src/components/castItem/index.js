@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import img from '../../images/film-poster-placeholder.png';
 import { MoviesContext } from "../../contexts/moviesContext";
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles({
@@ -26,7 +27,7 @@ const CastItem = ({castMember}) => {
 
   return (
     <>
-
+<Link to={`/actor/${castMember.id}`}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={castMember.name} src={ castMember.profile_path
@@ -37,6 +38,7 @@ const CastItem = ({castMember}) => {
           secondary={castMember.character}
         />
       </ListItem>
+      </ Link>
 
     </>
   );

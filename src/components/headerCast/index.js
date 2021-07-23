@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/*
+        <a href={movie.homepage}>
+          <HomeIcon color="primary" />
+        </a>
+        */
+
 const CastHeader = ( { castMember, history}) => {
   const classes = useStyles();
 
@@ -32,9 +38,7 @@ const CastHeader = ( { castMember, history}) => {
 
       <Typography variant="h4" component="h3">
         {castMember.name}
-        <a href={movie.homepage}>
-          <HomeIcon color="primary" />
-        </a>
+
         <br />
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward() } >

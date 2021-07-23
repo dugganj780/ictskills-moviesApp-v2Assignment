@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getMovieImages } from "../../api/tmdb-api";
+import { getCastImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
 
@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TemplateMoviePage = ({ movie, children }) => {
+const TemplateActorPage = ({ actor, children }) => {
   const classes = useStyles();
   const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: movie.id }],
-    getMovieImages
+    ["images", { id: actor.id }],
+    getCastImages
   );
 
   if (isLoading) {
@@ -34,11 +34,11 @@ const TemplateMoviePage = ({ movie, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters 
+  const images = data.profiles
 
   return (
     <>
-      <MovieHeader movie={movie} />
+      <CastHeader castMember={actor} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
@@ -48,7 +48,7 @@ const TemplateMoviePage = ({ movie, children }) => {
                 <GridListTile key={image.file_path} className={classes.gridListTile} cols={1}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                    alt={image.poster_path}
+                    alt={image.file_path}
                   />
                 </GridListTile>
               ))}
@@ -64,4 +64,4 @@ const TemplateMoviePage = ({ movie, children }) => {
   );
 };
 
-export default TemplateMoviePage;
+export default TemplateActorPage;
