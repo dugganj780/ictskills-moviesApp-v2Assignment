@@ -31,7 +31,7 @@ const CastItem = ({castMember}) => {
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={castMember.name} src={ castMember.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}`: img } />
+            ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}`: img }  />
         </ListItemAvatar>
         <ListItemText
           primary={castMember.name}

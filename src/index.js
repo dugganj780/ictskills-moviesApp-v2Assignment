@@ -12,9 +12,10 @@ import CastAndCrewPage from './pages/castAndCrewPage';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
+import PageNumberContextProvider from "./contexts/pageNumberContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import ActorProfilePage from './pages/actorProfilePage';
-import actorProfilePage from "./pages/actorProfilePage";
+
 
 //comment
 //Test
@@ -35,12 +36,13 @@ const App = () => {
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
+          <PageNumberContextProvider>
           {" "}
           <Switch>
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
-            <Route path="/actor/:id" component={actorProfilePage} />
+            <Route path="/actor/:id" component={ActorProfilePage} />
             <Route path="/movies/:id/castandcrew" component={CastAndCrewPage} />
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route exact path="/movies/mustwatch" component={MustWatchMoviesPage} />
@@ -49,6 +51,7 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Redirect from="*" to="/" />
           </Switch>
+          </PageNumberContextProvider>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

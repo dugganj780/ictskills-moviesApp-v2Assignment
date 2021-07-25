@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { PageNumberContext } from "../contexts/pageNumberContext";
 import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
@@ -12,8 +13,14 @@ This also completed Exercise 3. I am adding this comment so that I can save the 
 */
 
 const UpcomingMoviesPage = (props) => {
-  const { data, error, isLoading, isError } = useQuery('upcoming', getUpcomingMovies)
+  const context = useContext(PageNumberContext);
+  
+  const pageNumber  = context.pageNumber;
 
+  const { data: data, error, isLoading, isError, refetch } = useQuery(
+    ["data", { pageNumber: pageNumber }],
+    getUpcomingMovies
+  );
 
   if (isLoading) {
     return <Spinner />
