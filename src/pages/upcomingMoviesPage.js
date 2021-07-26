@@ -17,8 +17,8 @@ const UpcomingMoviesPage = (props) => {
   
   const pageNumber  = context.pageNumber;
 
-  const { data: data, error, isLoading, isError, refetch } = useQuery(
-    ["data", { pageNumber: pageNumber }],
+  const { data: upcoming, error, isLoading, isError } = useQuery(
+    ["upcoming", { pageNumber: pageNumber }],
     getUpcomingMovies
   );
 
@@ -29,7 +29,7 @@ const UpcomingMoviesPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }
-  const movies = data.results;
+  const movies = upcoming.results;
 
   const mustWatch = movies.filter(m => m.mustWatch)
   localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
