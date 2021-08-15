@@ -5,10 +5,13 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import { getMovies } from '../api/tmdb-api';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+import { AuthContext } from "../contexts/authContext";
 
 const HomePage = () => {
 
   const context = useContext(PageNumberContext);
+  const auth = useContext(AuthContext);
+  console.log(context);
   
   const pageNumber  = context.pageNumber;
 
@@ -36,7 +39,7 @@ const HomePage = () => {
       title="Discover Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return auth.isAuthenticated ? (<AddToFavoritesIcon movie={movie} />) : (null)
       }}
     />
   );

@@ -5,6 +5,7 @@ import { getUpcomingMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToMustWatchIcon from '../components/cardIcons/addToMustWatch';
+import { AuthContext } from "../contexts/authContext";
 
 /*
 To complete Exercise 1 I edited my Upcoming Movies page to match the Home Page.
@@ -14,6 +15,7 @@ This also completed Exercise 3. I am adding this comment so that I can save the 
 
 const UpcomingMoviesPage = (props) => {
   const context = useContext(PageNumberContext);
+  const auth = useContext(AuthContext);
   
   const pageNumber  = context.pageNumber;
 
@@ -41,7 +43,7 @@ const UpcomingMoviesPage = (props) => {
       title='Upcoming Movies'
       movies={movies}
       action={(movie) => {
-        return <AddToMustWatchIcon movie={movie} />
+        return auth.isAuthenticated ? (<AddToMustWatchIcon movie={movie} />) : (null)
       }}
     />
   );

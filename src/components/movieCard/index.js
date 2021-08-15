@@ -16,6 +16,8 @@ import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
+import { AuthContext } from "../../contexts/authContext";
+
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -34,6 +36,7 @@ export default function MovieCard({ movie,action }) {
   const classes = useStyles();
   const { favorites } = useContext(MoviesContext);
   const { mustWatch } = useContext(MoviesContext);
+  const auth = useContext(AuthContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
@@ -47,12 +50,12 @@ export default function MovieCard({ movie,action }) {
     let avatar = null;
 
 
-    if(movie.favorite === true){
+    if(movie.favorite === true && auth.isAuthenticated){
       avatar = <Avatar className={classes.avatar}>
       <FavoriteIcon />
     </Avatar>
     }
-    else if(movie.mustWatch === true){
+    else if(movie.mustWatch === true && auth.isAuthenticated){
       avatar = <Avatar className={classes.avatar}>
       <PlaylistAddCheckIcon />
     </Avatar>
