@@ -1,12 +1,31 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import Button from "@material-ui/core/Button";
+import { TextField } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    background: "linear-gradient(to right, #FFCE00 50%, #FFCE00 50%, #FE4880)",
+    margin: theme.spacing(1),    
+  },
+  media: { height: 300 },
+
+  formControl: {
+    backgroundColor: "rgb(255, 255, 255)",
+    margin: theme.spacing(2),
+    padding: "30px"
+  },
+}));
 
 const LoginForm = (props) => {
     const context  = useContext(AuthContext);
     console.log(context);
     const [details, setDetails] = useState({username:null, password:null});
     const [error, setError] = useState("");
+    const classes = useStyles();
   
     const login = e => {
       e.preventDefault();
@@ -17,27 +36,29 @@ const LoginForm = (props) => {
       }
     };
   
-    // Set 'from' to path where browser is redirected after a successful login.
-    // Either / or the protected path user tried to access.
-    //const  from = { pathname: "/" } ;
     const  from = { pathname: "/" } ;
   
     return context.isAuthenticated ? (
       <Redirect to={from} />
     ) : (
       <>
-        <h2>Login page</h2>
-        <p>You must log in to view the protected pages </p>
-        <form onSubmit={login}>
-              <h2>Login</h2>
+        <Card className={classes.root} variant="outlined">
+        <form onSubmit={login} className={classes.formControl}>
+              
               {error}
-              <label>Email</label>
-              <input type="text" name="username" id="username" onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
-              <label>Password</label>
-              <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
-              <input type ="submit" value="Login" />
+              <div>
+              <TextField label = "Email" type="text" name="username" id="username" variant="outlined" onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
+              </div>
+              <br />
+              <div>
+              <TextField label = "Password" type="password" name="password" id="password" variant="outlined" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+              </div>
+              <br />
+              <div>
+              <Button type="submit" variant="contained" color="secondary">Login</Button>
+              </div>
           </form>
-        <button onClick={login}>Submit</button>
+          </Card>
       </>
     );
   };

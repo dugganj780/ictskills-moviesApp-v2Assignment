@@ -25,9 +25,6 @@ const useStyles = makeStyles({
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
-  /*mustWatchAvatar: {
-    backgroundColor: "rgb(255, 0, 0)",
-  },*/
 });
 
 
@@ -65,23 +62,6 @@ export default function MovieCard({ movie,action }) {
     }
     return avatar;
   }
-
-  /*
-          avatar={
-          movie.favorite ? (
-            <Avatar className={classes.avatar}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
-        }
-        mustWatchAvatar={
-          movie.mustWatch ? (
-            <Avatar className={classes.avatar}>
-              <PlaylistAddCheckIcon />
-            </Avatar>
-          ) : null
-        }
-  */
 
   return (
     <Card className={classes.card}>

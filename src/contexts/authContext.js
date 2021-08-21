@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export const AuthContext = React.createContext(null);
 
@@ -17,10 +17,6 @@ const AuthContextProvider = (props) => {
   }
 
   const users = [user1, user2]
-
-  // useEffect(() => {
-  //   setIsAuthenticated(true);
-  // }, [newUser.username]);
 
   const authenticate = (username, password) => {
     for(let i=0; i<=1; i++){

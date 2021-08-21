@@ -1,15 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/authContext";
+import React from "react";
 import LoginForm from "../components/loginForm";
-import { useQuery } from 'react-query';
-import Spinner from '../components/spinner';
-import { getMovies } from '../api/tmdb-api';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+import { Typography } from "@material-ui/core";
+import Grid from '@material-ui/core/Grid';
 
 const LoginPage = () => {
 
   return (
-    <LoginForm />
+    <>
+    <Grid container>
+      <Grid item xs={4}  spacing={2}/>
+      <Grid item xs={4}>
+        <Typography variant="h3" align="center" color="red">Please Login</Typography>
+        <LoginForm />
+      </Grid>
+      <Grid item xs={4} spacing={2}/>
+    </Grid>
+    </>
   );
 };
 

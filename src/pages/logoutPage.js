@@ -1,10 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../contexts/authContext";
-import LoginForm from "../components/loginForm";
-import { useQuery } from 'react-query';
-import Spinner from '../components/spinner';
-import { getMovies } from '../api/tmdb-api';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+import { Typography } from "@material-ui/core";
 
 const LogoutPage = () => {
     const context = useContext(AuthContext);
@@ -12,9 +8,9 @@ const LogoutPage = () => {
 
 
   return (
-    <h3>
+    <Typography variant="h3">
         You have successfully logged out
-        </h3>
+        </ Typography>
   );
 };
 
