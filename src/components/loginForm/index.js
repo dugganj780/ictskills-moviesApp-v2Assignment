@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(255, 255, 255)",
     margin: theme.spacing(2),
     padding: "30px"
+  },
+
+  error:{
+    color:"red",
   },
 }));
 
@@ -44,8 +49,7 @@ const LoginForm = (props) => {
       <>
         <Card className={classes.root} variant="outlined">
         <form onSubmit={login} className={classes.formControl}>
-              
-              {error}
+              <Typography className={classes.error}>{error}</Typography>              
               <div>
               <TextField label = "Email" type="text" name="username" id="username" variant="outlined" onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
               </div>
