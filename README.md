@@ -23,8 +23,6 @@ Add authentication so users must login to use functions such as favourites
 
 ## Setup requirements.
 
-...... A brief explanation (to a third party) of any non-standard setup steps necessary to run your app/client locally (after cloning the repo) ........
-
 Once cloned, a number of dependencies needed to be installed to run the app locally, including Nodejs. Luckily, all that needed to be done was to run npm install and everything in package.json was installed.
 
 The dependencies required were:
@@ -34,8 +32,6 @@ Material UI
 Storybook
 
 ## API Data Model.
-
-......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
 
 getCast
 
@@ -103,16 +99,12 @@ getActor
 
 ### Component catalogue.
 
-....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
-
 ![components](https://user-images.githubusercontent.com/59389023/130320226-a30eafc9-94b6-4237-a2ff-7568db32132c.PNG)
 
 
 ![][stories]
 
 ### UI Design.
-
-...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
 
 ![01 Updated Homepage](https://user-images.githubusercontent.com/59389023/130320560-b595c0e6-508f-4f94-ae96-227cc71cae80.PNG)
 > Homepage has been updated. The user can now browse through additional pages of movies using the arrows at the bottom of the page. This is also true for the Upcoming Movies page. Additionally, users must now be logged in for the ability to add to favourites or must watch movies. You can also see the additional options in the header menu.
@@ -149,12 +141,6 @@ getActor
 + GET /login - displays Login Page (Public)
 + GET /logout - displays Logout Page (Public)  
 
-+ GET /blogs - displays all published blogs.
-+ POST /blogs (protected) - add a new blog.
-+ GET /blogs/:id - displays a particular blog.
-+ GET /blogs/:id/comments (protected) - detail view of a particular blog and its comments.
-+ etc.
-+ etc.
 
 ## Independent learning (If relevant).
 
