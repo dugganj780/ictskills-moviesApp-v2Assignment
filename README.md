@@ -142,6 +142,13 @@ getActor
 
 ...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
 
++ GET /actor/:id - displays the Actor Profile Page (Public)
++ GET /movies/:id/castandcrew - displays Cast Page (Public)
++ GET /movies/favorites - displays Favourites Page (Protected)
++ GET /movies/mustwatch - displays Must Watch Movies Page (Protected)
++ GET /login - displays Login Page (Public)
++ GET /logout - displays Logout Page (Public)  
+
 + GET /blogs - displays all published blogs.
 + POST /blogs (protected) - add a new blog.
 + GET /blogs/:id - displays a particular blog.
@@ -151,7 +158,11 @@ getActor
 
 ## Independent learning (If relevant).
 
-....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
+The majority of technology and techniques that I used for the project were covered in the lectures. However, I did get some ideas on handling the authntication and design of the login form from the video below:
+
+https://www.youtube.com/watch?v=91qEdc6dSUs&t=1260s
+
+Thank you for taking the time to view my project.
 
 
 [model]: ./data.jpg
